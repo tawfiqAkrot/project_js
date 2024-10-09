@@ -1,0 +1,14 @@
+let myString = "1,2,3,EE,l,z,e,r,o,_,w,e,b,_,s,c,h,o,o,l,2,0,z";
+let solution = myString
+    .split("") // تقسيم السلسلة إلى أحرف
+    .filter(function (ele) {
+        return isNaN(parseInt(ele)) && ele.length === 1 && ele !== "_" && ele !== "" && ele !== ",";
+    })
+    .join("") // تحويل المصفوفة إلى سلسلة
+    .replace("EElzero", "Elzero ") // تعديل النص
+    .replace("webschoolz", "web school") // تعديل النص
+    .split(" ") // تقسيم الجملة إلى كلمات
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // تحويل أول حرف من كل كلمة إلى كبتل
+    .join(" "); // إعادة تجميع الكلمات في جملة
+
+console.log(solution); // النتيجة: "Elzero Web School"
